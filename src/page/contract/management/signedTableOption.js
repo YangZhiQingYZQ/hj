@@ -52,7 +52,8 @@ const column = [{
   },
   {
     label: "变更-交铺-收铺-装修-逾期-违约-终止",
-    prop: "_code0"
+    prop: "_code0",
+    width:"230"
   },
   {
     label: "操作",
@@ -62,7 +63,8 @@ const column = [{
 const option = {
   addBtn: false,
   align: "center",
-
+  border: true,
+  calcHeight:"100",
   pageSizes: [10, 20],
   // header:false,
   index: true,
@@ -74,7 +76,7 @@ const tableConfig = {
   option: option,
   page: {
     pageSize: 20,
-    total:1000
+    total: 1000
   },
 }
 export default tableConfig;
