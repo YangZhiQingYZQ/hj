@@ -1,6 +1,8 @@
 <template>
   <div>
-    <el-dialog title="外层 Dialog" :visible.sync="isDialog"></el-dialog>
+    <el-dialog :visible.sync="isDialog">
+      
+    </el-dialog>
   </div>
 </template>
 

@@ -1,6 +1,8 @@
 <template>
   <div class="signedTable">
     <el-table border>
+      <el-table-column type = "selection"></el-table-column>
+      <el-table-column type = "index"></el-table-column>
       <el-table-column
         :label="item.label"
         v-for="(item,idx) in tableList"

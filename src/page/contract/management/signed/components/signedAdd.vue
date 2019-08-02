@@ -1,5 +1,5 @@
 <template>
-  <el-dialog title="提示" :visible.sync="isDialog">
+  <el-dialog title="提示" :visible.sync="addLialog">
     <el-form :inline="true">
       <el-form-item label="合同类型">
         <el-select v-model="ht" placeholder="请选择">

@@ -4,7 +4,7 @@
     <signed-btns :btns="btns" class="btns" @clickBtns="selectEvent"></signed-btns>
     <signed-table></signed-table>
     <signed-add ref="signedAdd"></signed-add>
-    <apply></apply>
+    <signed-apply></signed-apply>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ import signedForm from "./components/signedForm";
 import signedBtns from "./components/signedBtns";
 import signedTable from "./components/signedTable";
 import signedAdd from "./components/signedAdd";
-import apply from "./components/apply";
+import signedApply from "./components/signedApply";
 export default {
   data() {
     return {
@@ -69,10 +69,10 @@ export default {
       ]
     };
   },
-  components: { signedForm, signedBtns, signedTable, signedAdd, apply },
+  components: { signedForm, signedBtns, signedTable, signedAdd, signedApply },
   methods: {
     add() {
-      this.$store.dispatch('changeIsDialog','SIGED_ADD')
+      this.$refs.signedAdd.show();
     },
     selectEvent(data) {
       this[data.type]();

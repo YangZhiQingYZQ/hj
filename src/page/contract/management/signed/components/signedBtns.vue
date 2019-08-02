@@ -14,7 +14,7 @@
         :key="'btns_'+idx"
       >{{item.label}}</el-button>
     </el-col>
-    <el-col :span="4">
+    <el-col :span="4" style="min-width:226px">
       <el-button type="success" size="small">导入模板</el-button>
       <el-button size="small" circle>
         <i class="el-icon-refresh"></i>
