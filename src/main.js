@@ -6,14 +6,16 @@ import router from './router'
 import Avue from "@smallwei/avue";
 import ElementUi from "element-ui";
 import 'element-ui/lib/theme-chalk/index.css';
+import store from './store';
 Vue.use(ElementUi);
-Vue.use(Avue)
+Vue.use(Avue);
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: {
     App
   },

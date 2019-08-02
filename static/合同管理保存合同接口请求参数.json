@@ -1,0 +1,131 @@
+{
+	"acceptanceShopDate": "",// // 收铺日期
+	"address2": "深圳市宝安区",// 联系地址
+	"applyDate": 2019-08-01",// 申请日期
+	"assessmentIndicators": 1,// 考核指标 1交易量 2交易额
+	"attachment01": "",// 附件1
+	"attachment02": "",// 附件2
+	"attachment03": "",// 附件3
+	"attachment04": "",// 附件4
+	"attachment05": "",// 附件5
+	"clauses": "1,2,3",// 补充条款Ids
+	"contractCode": "CONTRACT_CODE11",// 合同编码
+	"contractDeposit": 10000,// 合同押金
+	"contractPropertyFee": 3000,// 物管费合同金额
+	"contractSigningType": 1,// 合同签订类型 1新签/2续签/3变更
+	"contractStartForm": "2019-08-01",// 合同起始日期
+	"contractStartTo": "2022-07-31",// 合同截止日期
+	"contractSubManagementList": [// 子合同-资源
+		{
+			"format": "1",// 业态编码
+			"housingOwnership": "1",// 房源性质 1自有/2已售/3返祖
+			"rentArea": 3,// 租赁面积
+			"resourceCode": "A-01-01-01-01",// 资源编码
+			"resourceId": '11482739283737392',// 租赁ID
+			"resourceName": "1号商铺",// 资源名称
+			"resourceType": "2"// 资源类型 1棚、2铺、3房间（专用于综合配套的房间）、4摊位、5广告牌、6仓库、7冷库
+		}
+	],// 
+	"contractTerminationType": ,// 终止类型
+	"contractType": 1,// 合同类型 1 固定合同、2 浮动
+	"contractVersion": "1",// 变更版本号
+	"customerId": '12233493837273940',// 客户编号
+	"customerName": "这两条",// 客户名称
+	"dailyOpeningHours": 10,// 每日营业时长
+	"deliveryDate": "",// 交铺日期
+	"emergency": 0,// 0.一般,1.紧急
+	"employeeName": "利斯",// 申请人
+	"examineCycle": 3,// 考核周期
+	"feeListList": [// 合同费项 租金、物管费
+		{
+			"billingEndTime": "2020-07-31",// 计费截止时间
+			"billingPrice": 0,// 计费单价
+			"billingStartTime": "2019-08-01",// 计费起始时间
+			"bottomUnitPrice": 10,// 固定租金单价
+			"expendtureId": 1,// 费项编号
+			"floatingUnitPrice": 3,// 浮动租金单价
+			"ifCheckVolume": 0,// 是否检查交易量 0是/ 1否
+			"priceUnit": ""// 计价单位 元/月/m2
+		},
+		{
+			"billingEndTime": "2021-07-31",// 计费截止时间
+			"billingPrice": 0,// 计费单价
+			"billingStartTime": "2020-08-01",// 计费起始时间
+			"bottomUnitPrice": 12,// 固定租金单价
+			"expendtureId": 1,// 费项编号
+			"floatingUnitPrice": 3,// 浮动租金单价
+			"ifCheckVolume": 0,// 是否检查交易量 0是/ 1否
+			"priceUnit": "1"// 计价单位 元/月/m2
+		},
+		{
+			"billingEndTime": "2022-07-31",// 计费截止时间
+			"billingPrice": 0,// 计费单价
+			"billingStartTime": "2021-08-01",// 计费起始时间
+			"bottomUnitPrice": 13,// 固定租金单价
+			"expendtureId": 1,// 费项编号
+			"floatingUnitPrice": 3,// 浮动租金单价
+			"ifCheckVolume": 0,// 是否检查交易量 0是/ 1否
+			"priceUnit": "2"// 计价单位 元/月/m2
+		},
+		{
+			"billingEndTime": "2022-07-31",// 计费截止时间
+			"billingPrice": 1000,// 计费单价
+			"billingStartTime": "2019-08-01",// 计费起始时间
+			"expendtureId": 2,// 费项编号
+			"priceUnit": "1"// 计价单位 元/月/m2
+		},
+		{
+			"billingEndTime": "2022-07-31",// 计费截止时间
+			"billingPrice": 2000,// 计费单价
+			"billingStartTime": "2019-08-01",// 计费起始时间
+			"expendtureId": 3,// 费项编号
+			"priceUnit": "3"// 计价单位 元/月/m2
+		}
+	],// 
+	"firstPaymentNtermRent": 1,// 首次缴纳N期租金
+	"firstRentDate": "2019-08-01",// 首次交租日期 
+	"measurementMethod": 1,// 考核方式
+	"openDay": "",// 开业日
+	"organizationName": "",// 申请部门
+	"periodPolicyList": [// 合同期间的政策
+		{
+			"policyId": '1124393288837681'// 政策Id
+		}
+	],// 
+	"periodicTotalContractAmount": 35000,// 周期合计合同金额
+	"periodicTotalPolicyAmount": 32000,// 周期合计政策金额
+	"phoneNum": 13444445555,// 联系电话
+	"policyDeposit": 5000,// 政策押金
+	"policyPropertyFee": 2000,// 物管费政策金额
+	"realDeliveryDate": "",// 实际交铺日期
+	"remark": "",// 附加说明
+	"rentContractAmount": 30000,// 租金合同金额
+	"rentFreeList": [// 免租期list
+		{
+			"endTime": "2019-11-15",//  免租期截止时间
+			"rentFreeDays": 15,// 免租天数
+			"rentFreeMonth": 3,// 免租月数
+			"startTime": "2019-08-01"// 免租期起始时间
+		}
+	],// 
+	"rentPayingCycle": 3,// 交租周期 1 月/2 季/3 年/4 一次性
+	"rentPolicyAmount": 28000,// 租金政策金额
+	"signingDate": "2019-07-31",// 签约日期
+	"sourceContractId": 0,// 原始合同ID
+	"status": 1,// 合同记录状态
+	"title": "开始合同",// 合同标题
+	"transactionVolumeList": [// 浮动租金考核周期
+		{
+			"contractStartForm": "2019-08-01",// 考核开始时间
+			"contractStartTo": "2020-07-31",//  考核截止时间
+			"recoverRent": "",// 应追缴租金
+			"resourceId": "11482739283737392",// 租赁资源
+			"transactionFeeAmount": 0,// 实际交易费金额
+			"transactionFeeAmount2": 0,// 考核交易费金额
+			"transactionVolume": 0,// 实际交易量
+			"transactionVolume2": 100000,// 考核交易量
+			"upToStandard": 0// 是否达标
+		}
+	],
+	"useApprovedContract": 0// 是否使用已审批合同模板 0.是,1.否
+}

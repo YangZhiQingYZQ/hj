@@ -64,7 +64,6 @@ const option = {
   addBtn: false,
   align: "center",
   border: true,
-  calcHeight:"100",
   pageSizes: [10, 20],
   // header:false,
   index: true,

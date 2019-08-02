@@ -8,9 +8,8 @@
         </div>
       </template>
     </avue-form>
-    {{tableOption.page}}
     <avue-crud :data="tableData" :option="tableOption.option" :page="tableOption.page">
-      <template v-slot:menuLeft>
+      <template v-slot:menuRight>
         <el-button
           v-for="(item,idx) in tableBtns"
           :key="'table_'+idx"
@@ -19,6 +18,9 @@
           :type="item.type"
           :plain="item.plain"
         >{{item.label}}</el-button>
+        <el-button circle size="small">
+          <i class="el-icon-refresh"></i>
+        </el-button>
       </template>
     </avue-crud>
   </div>
@@ -41,7 +43,7 @@ export default {
         size: "small",
         gutter: 1,
         menuBtn: false,
-        menuPostion: "left",
+        menuPostion: "right",
         column: [
           {
             label: "客户名称",
@@ -91,28 +93,7 @@ export default {
           }
         ]
       },
-      tableData: [
-        {
-          name: "张三",
-          sex: "男",
-          date: "1994-02-23 00:00:00"
-        },
-        {
-          name: "李四",
-          sex: "女",
-          date: "1994-02-23 00:00:00"
-        },
-        {
-          name: "王五",
-          sex: "女",
-          date: "1994-02-23 00:00:00"
-        },
-        {
-          name: "赵六",
-          sex: "男",
-          date: "1994-02-23 00:00:00"
-        }
-      ],
+      tableData: [],
       tableOption: tableConfig,
       tableBtns: [
         {
@@ -126,18 +107,7 @@ export default {
           icon: "el-icon-plus",
           plain: false,
           type: "primary"
-        },
-        ...(function() {
-          let arr = [];
-          for (let i = 0; i < 100; i++) {
-            arr.push({
-              label: "审核",
-              plain: false,
-              type: "primary"
-            });
-          }
-          return arr;
-        })()
+        }
       ]
     };
   },

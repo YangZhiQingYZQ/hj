@@ -8,7 +8,7 @@
   </el-tabs>
 </template>
 <script>
-import signed from "./signed";
+import signed from "./signed/index";
 export default {
   components: { signed },
   data() {
