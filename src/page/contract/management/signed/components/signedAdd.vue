@@ -22,7 +22,7 @@
         </el-select>
       </el-form-item>
       <el-form-item>
-        <el-button>下一步</el-button>
+        <el-button @click = "openApply">下一步</el-button>
       </el-form-item>
     </el-form>
   </el-dialog>
@@ -55,6 +55,11 @@ export default {
   methods: {
     show() {
       this.addLialog = true;
+    },
+    openApply(){
+      this.$emit('signedAdd',{
+        type : "openApply"
+      });
     }
   }
 };
