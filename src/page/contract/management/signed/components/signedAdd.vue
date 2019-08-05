@@ -22,7 +22,7 @@
         </el-select>
       </el-form-item>
       <el-form-item>
-        <el-button>下一步</el-button>
+        <el-button @click="next">下一步</el-button>
       </el-form-item>
     </el-form>
   </el-dialog>
@@ -55,6 +55,16 @@ export default {
   methods: {
     show() {
       this.addLialog = true;
+    },
+    next() {
+      this.$emit("signedAdd", {
+        type: "signedAdd",
+        data: ""
+      });
+      this.hide();
+    },
+    hide(){
+      this.addLialog = false;
     }
   }
 };

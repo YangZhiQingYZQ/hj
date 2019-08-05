@@ -3,8 +3,8 @@
     <signed-form></signed-form>
     <signed-btns :btns="btns" class="btns" @clickBtns="selectEvent"></signed-btns>
     <signed-table></signed-table>
-    <signed-add ref="signedAdd"></signed-add>
-    <signed-apply></signed-apply>
+    <signed-add ref="signedAdd" @signedAdd="selectEvent"></signed-add>
+    <signed-apply ref="signedApply"></signed-apply>
   </div>
 </template>
 
@@ -73,6 +73,9 @@ export default {
   methods: {
     add() {
       this.$refs.signedAdd.show();
+    },
+    signedAdd() {
+      this.$refs.signedApply.show();
     },
     selectEvent(data) {
       this[data.type]();
