@@ -2,7 +2,7 @@
   <el-dialog title="提示" :visible.sync="addLialog">
     <el-form :inline="true">
       <el-form-item label="合同类型">
-        <el-select v-model="ht" placeholder="请选择">
+        <el-select v-model="selectActive" placeholder="请选择">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -30,18 +30,28 @@
 
 <script>
 export default {
+  props: {
+    selectActive: {
+      type: String,
+      default: ""
+    }
+  },
+  watch: {
+    selectActive() {
+      this.$emit("update:selectActive", this.selectActive);
+    }
+  },
   data() {
     return {
-      ht: "",
       kh: "",
       options: [
         {
           label: "固定租金",
-          value: "_code"
+          value: "flxed"
         },
         {
           label: "浮动租金",
-          value: "_code"
+          value: "float"
         }
       ],
       addLialog: false
@@ -63,7 +73,7 @@ export default {
       });
       this.hide();
     },
-    hide(){
+    hide() {
       this.addLialog = false;
     }
   }

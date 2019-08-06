@@ -3,8 +3,8 @@
     <signed-form></signed-form>
     <signed-btns :btns="btns" class="btns" @clickBtns="selectEvent"></signed-btns>
     <signed-table></signed-table>
-    <signed-add ref="signedAdd" @signedAdd="selectEvent"></signed-add>
-    <signed-apply ref="signedApply"></signed-apply>
+    <signed-add ref="signedAdd" @signedAdd="selectEvent" :selectActive.sync="selectActive"></signed-add>
+    <signed-apply ref="signedApply" :selectActive = "selectActive"></signed-apply>
   </div>
 </template>
 
@@ -13,7 +13,6 @@ import signedForm from "./components/signedForm";
 import signedBtns from "./components/signedBtns";
 import signedTable from "./components/signedTable";
 import signedAdd from "./components/signedAdd";
-import signedApply from "./components/signedApply";
 export default {
   data() {
     return {
@@ -66,10 +65,17 @@ export default {
           label: "查看审批进度",
           event: ""
         }
-      ]
+      ],
+      selectActive: "flxed"
     };
   },
-  components: { signedForm, signedBtns, signedTable, signedAdd, signedApply },
+  components: {
+    signedForm,
+    signedBtns,
+    signedTable,
+    signedAdd,
+    signedApply: () => import("./components/signedApply")
+  },
   methods: {
     add() {
       this.$refs.signedAdd.show();

@@ -1,0 +1,43 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+  line-height: 2;
+}
+
+.fn {
+  flex: none;
+}
+
+.apply-form {
+  height: 40px;
+  border-right: 1px solid #bbb;
+
+  &:nth-child(2) {
+    border-top: 1px solid #bbb;
+  }
+
+  .label {
+    padding-left: 10px;
+    line-height: 39px;
+    box-sizing: border-box;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+  }
+
+  /* .el-col-4,.el-col-8,.el-col-10{
+            box-sizing: border-box;
+        } */
+  .el-input__inner {
+    box-sizing: border-box;
+    display: block;
+    border: none;
+    border-radius: 0;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+  }
+
+  .el-select {
+    width: 100%;
+  }
+}
