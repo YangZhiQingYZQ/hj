@@ -4,7 +4,9 @@
     <signed-btns :btns="btns" class="btns" @clickBtns="selectEvent"></signed-btns>
     <signed-table></signed-table>
     <signed-add ref="signedAdd" @signedAdd="selectEvent" :selectActive.sync="selectActive"></signed-add>
-    <signed-apply ref="signedApply" :selectActive = "selectActive"></signed-apply>
+    <signed-apply ref="signedApply" :selectActive="selectActive"></signed-apply>
+    <to-view ref="toView"></to-view>
+    <div @click = "toView">m.,m,.</div>
   </div>
 </template>
 
@@ -74,7 +76,8 @@ export default {
     signedBtns,
     signedTable,
     signedAdd,
-    signedApply: () => import("./components/signedApply")
+    signedApply: () => import("./components/signedApply"),
+    toView: () => import("./components/toView")
   },
   methods: {
     add() {
@@ -82,6 +85,9 @@ export default {
     },
     signedAdd() {
       this.$refs.signedApply.show();
+    },
+    toView(){
+      this.$refs.toView.show();
     },
     selectEvent(data) {
       this[data.type](data.data);
