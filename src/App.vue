@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <!-- <el-input v-model = "num"></el-input>
+    <div>{{num * 750/414}}</div> -->
     <router-view/>
   </div>
 </template>
@@ -7,6 +9,11 @@
 <script>
 export default {
   name: 'App',
+  data(){
+    return {
+      num :""
+    }
+  },
   created(){
     console.log(this.$store);
   }

@@ -5,6 +5,7 @@
     <signed-table></signed-table>
     <signed-add ref="signedAdd" @signedAdd="selectEvent" :selectActive.sync="selectActive"></signed-add>
     <signed-apply ref="signedApply" :selectActive = "selectActive"></signed-apply>
+    <look-contract></look-contract>
   </div>
 </template>
 
@@ -74,7 +75,8 @@ export default {
     signedBtns,
     signedTable,
     signedAdd,
-    signedApply: () => import("./components/signedApply")
+    signedApply: () => import("./components/signedApply"),
+    lookContract: () => import("./components/lookContract/index.vue")
   },
   methods: {
     add() {

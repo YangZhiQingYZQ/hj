@@ -8,9 +8,10 @@
   </el-tabs>
 </template>
 <script>
-import signed from "./signed/index";
 export default {
-  components: { signed },
+  components: {
+    signed: () => import("./signed/index.vue")
+  },
   data() {
     return {
       activeName: "signed"
