@@ -4,7 +4,7 @@
     <signed-btns :btns="btns" class="btns" @clickBtns="selectEvent"></signed-btns>
     <signed-table></signed-table>
     <signed-add ref="signedAdd" @signedAdd="selectEvent" :selectActive.sync="selectActive"></signed-add>
-    <signed-apply ref="signedApply" :selectActive = "selectActive"></signed-apply>
+    <signed-apply ref="signedApply" :selectActive.sync = "selectActive"></signed-apply>
     <look-contract></look-contract>
   </div>
 </template>
