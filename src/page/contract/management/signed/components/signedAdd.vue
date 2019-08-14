@@ -1,5 +1,5 @@
 <template>
-  <el-dialog title="提示" :visible.sync="addLialog">
+  <el-dialog title="提示" :visible.sync="isDialog">
     <el-form :inline="true">
       <el-form-item label="合同类型">
         <el-select v-model="selectActive" placeholder="请选择">
@@ -54,17 +54,12 @@ export default {
           value: "float"
         }
       ],
-      addLialog: false
+      isDialog: false
     };
-  },
-  computed: {
-    isDialog() {
-      return this.$store.getters.isDialog == "SIGED_ADD";
-    }
   },
   methods: {
     show() {
-      this.addLialog = true;
+      this.isDialog = true;
     },
     next() {
       this.$emit("signedAdd", {
@@ -74,7 +69,7 @@ export default {
       this.hide();
     },
     hide() {
-      this.addLialog = false;
+      this.isDialog = false;
     }
   }
 };

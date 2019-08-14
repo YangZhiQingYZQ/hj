@@ -35,6 +35,8 @@ import relevantEnclosure from "./components/relevantEnclosure";
 import rentPolicy from "./components/rentPolicy";
 import rentPreviewPlan from "./components/rentPreviewPlan";
 import btns from "./components/btns";
+import { dialogFn } from "../../../../common.js";
+console.log(dialogFn);
 export default {
   components: {
     customer,
@@ -54,6 +56,7 @@ export default {
     btns,
     flaotRentRule: () => import("./components/flaotRentRule")
   },
+  mixins: [dialogFn],
   props: {
     selectActive: {
       type: String,
@@ -65,11 +68,6 @@ export default {
     return {
       isDialog: false
     };
-  },
-  methods: {
-    show() {
-      this.isDialog = true;
-    }
   }
 };
 </script>
