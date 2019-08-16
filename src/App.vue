@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import axios from "axios"
 export default {
   name: 'App',
   data(){
@@ -15,6 +16,9 @@ export default {
     }
   },
   created(){
+    axios.post("/rst-contract/contractManagement/findByContractCode",{aa:"11"}).then(res=>{
+      console.log(res);
+    })
     console.log(this.$store);
   }
 }

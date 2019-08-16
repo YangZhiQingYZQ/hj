@@ -10,7 +10,7 @@ import store from './store';
 Vue.use(ElementUi);
 Vue.use(Avue);
 Vue.config.productionTip = false
-
+import mock from "./mockAjax.js";
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

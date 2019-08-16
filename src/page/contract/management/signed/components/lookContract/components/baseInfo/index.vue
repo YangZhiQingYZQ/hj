@@ -103,16 +103,16 @@
       </el-row>
     </el-row>
     <!-- 合同变更记录 -->
-    <div class="record">xxxx年合同变更记录</div>
-    <!-- 关闭 -->
-    <el-button class="confirm">确定</el-button>
+    <change-record></change-record>
+   
   </div>
 </template>
 <script>
 export default {
   components: {
     selectEdition: () => import("../components/selectEdition"),
-    resourcesInfo: () => import("./components/resourcesInfo")
+    changeRecord: () => import("../components/changeRecord"),
+    resourcesInfo: () => import("./components/resourcesInfo"),
   },
   data() {
     return {
@@ -135,11 +135,6 @@ export default {
     .enclosure-list {
       flex: none;
     }
-  }
-  .confirm {
-      display: block;
-    margin: 0 auto;
-    width:80px;
   }
 }
 </style>

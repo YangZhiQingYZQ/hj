@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import INDEX from '@/page/index';
 import Management from '../page/contract/management';
+import Change from "../page/contract/change";
 import routerPath from './routerPath';
 Vue.use(Router)
 
@@ -18,6 +19,13 @@ export default new Router({
         component: Management,
         meta: {
           name: "合同管理"
+        }
+      }, {
+        path: '/contract/change',
+        name: 'change',
+        component: Change,
+        meta: {
+          name: "合同变更"
         }
       }]
     }
