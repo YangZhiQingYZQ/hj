@@ -1,3 +1,10 @@
+<!--
+ * @Author: YZQ
+ * @DeScription: 
+ * @Date: 2019-08-14 12:32:04
+ * @LastEditors: YZQ
+ * @LastEditTime: 2019-08-21 02:12:44
+ -->
 <template>
   <el-dialog :visible.sync="isDialog" width="80%">
     <apply-info :selectActive="selectActive"></apply-info>
@@ -35,7 +42,7 @@ import relevantEnclosure from "./components/relevantEnclosure";
 import rentPolicy from "./components/rentPolicy";
 import rentPreviewPlan from "./components/rentPreviewPlan";
 import btns from "./components/btns";
-import { dialogFn } from "../../../../common.js";
+import { dialogFn, AddContract } from "../../../../common.js";
 console.log(dialogFn);
 export default {
   components: {

@@ -1,10 +1,21 @@
+<!--
+ * @Author: YZQ
+ * @DeScription: 
+ * @Date: 2019-08-14 12:33:27
+ * @LastEditors: YZQ
+ * @LastEditTime: 2019-08-21 01:02:45
+ -->
 <template>
   <div class="signed">
-    <signed-form></signed-form>
-    <signed-btns :btns="btns" class="btns" @clickBtns="selectEvent"></signed-btns>
-    <signed-table></signed-table>
+    <signed-form>
+      <template v-slot="soltData">
+        <signed-btns :btns="btns" class="btns" @clickBtns="selectEvent"></signed-btns>
+        <signed-table :tableData="soltData.tableData"></signed-table>
+      </template>
+    </signed-form>
+
     <signed-add ref="signedAdd" @signedAdd="selectEvent" :selectActive.sync="selectActive"></signed-add>
-    <signed-apply ref="signedApply" :selectActive.sync = "selectActive"></signed-apply>
+    <signed-apply ref="signedApply" :selectActive.sync="selectActive"></signed-apply>
     <look-contract></look-contract>
   </div>
 </template>

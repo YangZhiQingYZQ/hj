@@ -1,3 +1,10 @@
+<!--
+ * @Author: YZQ
+ * @DeScription: 
+ * @Date: 2019-08-02 20:48:44
+ * @LastEditors: YZQ
+ * @LastEditTime: 2019-08-21 00:46:10
+ -->
 <template>
   <div id="app">
     <!-- <el-input v-model = "num"></el-input>
@@ -7,7 +14,6 @@
 </template>
 
 <script>
-import axios from "axios"
 export default {
   name: 'App',
   data(){
@@ -16,9 +22,6 @@ export default {
     }
   },
   created(){
-    axios.post("/rst-contract/contractManagement/findByContractCode",{aa:"11"}).then(res=>{
-      console.log(res);
-    })
     console.log(this.$store);
   }
 }

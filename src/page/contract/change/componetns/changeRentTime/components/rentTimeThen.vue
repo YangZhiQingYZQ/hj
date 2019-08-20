@@ -1,3 +1,10 @@
+<!--
+ * @Author: YZQ
+ * @DeScription: 
+ * @Date: 2019-08-16 19:33:14
+ * @LastEditors: YZQ
+ * @LastEditTime: 2019-08-20 23:27:59
+ -->
 <template>
   <div class="rent-time-then">
     <h3 class="rent-title">{{title0}}</h3>

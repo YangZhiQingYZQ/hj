@@ -1,9 +1,14 @@
+/*
+ * @Author: YZQ
+ * @DeScription: 
+ * @Date: 2019-08-16 21:50:44
+ * @LastEditors: YZQ
+ * @LastEditTime: 2019-08-21 00:55:57
+ */
 var Mock = require("mockjs");
-Mock.mock("/rst-contract/contractManagement/findByContractCode", function (options) {
-  console.log(options);
+Mock.mock(RegExp("/rst-contract/contractManagement/findByContractCode"+"*"), "get", function (options) {
+  console.log(options)
   let res = require("./json/findByContractCode.json")
   return res;
 })
-console.log("执行")
-console.log(Mock)
 export default Mock;
