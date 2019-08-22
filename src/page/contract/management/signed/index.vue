@@ -3,7 +3,7 @@
  * @DeScription: 
  * @Date: 2019-08-14 12:33:27
  * @LastEditors: YZQ
- * @LastEditTime: 2019-08-21 01:02:45
+ * @LastEditTime: 2019-08-23 01:08:46
  -->
 <template>
   <div class="signed">
@@ -78,7 +78,7 @@ export default {
           event: ""
         }
       ],
-      selectActive: "flxed"
+      selectActive: "0"
     };
   },
   components: {
@@ -103,7 +103,18 @@ export default {
 };
 </script>
 
-<style>
+<style lang ="scss">
+.apply-info , .apply-form ,.wy {
+  .el-form-item {
+    margin: 0;
+  }
+  .el-form-item__content {
+    line-height: 0;
+  }
+  .el-select .el-input.is-focus .el-input__inner,.el-select .el-input__inner:focus{
+    border-color:#bbb;
+  }
+}
 .btns {
   margin-bottom: 20px;
 }

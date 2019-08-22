@@ -3,37 +3,47 @@
  * @DeScription: 
  * @Date: 2019-08-14 12:32:04
  * @LastEditors: YZQ
- * @LastEditTime: 2019-08-21 02:12:44
+ * @LastEditTime: 2019-08-23 02:50:32
  -->
 <template>
   <el-dialog :visible.sync="isDialog" width="80%">
-    <apply-info :selectActive="selectActive"></apply-info>
-    <customer></customer>
-    <wy></wy>
-    <house-source></house-source>
-    <rent-time></rent-time>
-    <flaot-rent-rule v-if="selectActive == 'float'"></flaot-rent-rule>
-    <rent-rules></rent-rules>
-    <rent-free-rule></rent-free-rule>
-    <other-expenses></other-expenses>
+    <apply-info
+      :contract="contract"
+      :title="'租赁申请('+(selectActive=='0' ?'固定合同':'浮动合同')+')'"
+      ref="applyInfo"
+    ></apply-info>
+    <customer :contract="contract" ref="customer"></customer>
+    <!-- 暂不确定 -->
+    <!-- <wy :contract="contract" ref="wy"></wy> -->
+    <house-source :contract="contract" ref="houseSource"></house-source>
+    <rent-time :contract="contract" ref="rentTime"></rent-time>
+
+    <div @click="subimt">dsfds</div>
+    <!-- 暂不确定 -->
+    <!-- <flaot-rent-rule v-if="selectActive == '1'" :contract="contract" ref="floatRentRule"></flaot-rent-rule> -->
+    <!-- 暂不确定 -->
+    <!-- <rent-rules :contract="contract" ref="rentRules"></rent-rules> -->
+
+    <rent-free-rule :contract="contract" ref="rentFreeRule"></rent-free-rule>
+    <!-- <other-expenses></other-expenses>
     <first-rent-rule></first-rent-rule>
     <supplement-rule></supplement-rule>
     <additional-explain></additional-explain>
     <relevant-enclosure></relevant-enclosure>
     <rent-policy></rent-policy>
     <rent-preview-plan></rent-preview-plan>
-    <btns></btns>
+    <btns></btns> -->
   </el-dialog>
 </template>
 
 <script>
-import applyInfo from "./components/applyInfo";
-import customer from "./components/customer";
-import wy from "./components/wy";
-import rentTime from "./components/rentTime";
-import houseSource from "./components/houseSource";
-import rentRules from "./components/rentRules";
-import rentFreeRule from "./components/rentFreeRule";
+import applyInfo from "../../../../components/applyInfo";
+import customer from "../../../../components/customer";
+import wy from "../../../../components/wy";
+import houseSource from "../../../../components/houseSource";
+import rentTime from "../../../../components/rentTime";
+import rentRules from "../../../../components/rentRules";
+import rentFreeRule from "../../../../components/rentFreeRule";
 import otherExpenses from "./components/otherExpenses";
 import firstRentRule from "./components/firstRentRule";
 import supplementRule from "./components/supplementRule";
@@ -73,8 +83,26 @@ export default {
   name: "apply",
   data() {
     return {
-      isDialog: false
+      isDialog: false,
+      contract: {}
     };
+  },
+  methods: {
+    subimt() {
+      console.log(this.$refs.applyInfo.form);
+      let params = Object.assign(
+        this.contract,
+        this.$refs.applyInfo.form,
+        this.$refs.customer.form,
+        this.$refs.houseSource.form,
+        this.$resf.rentTime.form
+      );
+      console.log(params);
+    }
+  },
+  created() {
+    this.contract = new AddContract(this.selectActive);
+    console.log((this.contract.employeeName = "21123123"));
   }
 };
 </script>

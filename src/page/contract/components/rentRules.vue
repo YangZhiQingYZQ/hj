@@ -1,3 +1,10 @@
+<!--
+ * @Author: YZQ
+ * @DeScription: 
+ * @Date: 2019-08-16 14:24:35
+ * @LastEditors: YZQ
+ * @LastEditTime: 2019-08-23 02:18:30
+ -->
 <template>
   <div class="rent-rules">
     <h3 class="title">
@@ -22,7 +29,29 @@ export default {
     month: {
       type: Boolean,
       default: false
+    },
+    contract: {
+      type: Object,
+      default() {
+        return {};
+      }
     }
+  },
+  data() {
+    return {
+      form: {}
+    };
+  },
+  methods: {
+    initForm() {
+      let {} = this.contract;
+      this.form = {};
+    },
+    // 验证逻辑
+    isVerfiy() {}
+  },
+  created() {
+    this.initForm();
   }
 };
 </script>

@@ -1,3 +1,10 @@
+<!--
+ * @Author: YZQ
+ * @DeScription: 
+ * @Date: 2019-08-14 12:32:04
+ * @LastEditors: YZQ
+ * @LastEditTime: 2019-08-22 00:26:48
+ -->
 <template>
   <el-dialog title="提示" :visible.sync="isDialog">
     <el-form :inline="true">
@@ -38,7 +45,7 @@ export default {
   },
   watch: {
     selectActive() {
-      this.$emit("update:selectActive", this.selectActive);
+      this.$emit("updata:selectActive", this.selectActive);
     }
   },
   data() {
@@ -47,11 +54,11 @@ export default {
       options: [
         {
           label: "固定租金",
-          value: "flxed"
+          value: "0"
         },
         {
           label: "浮动租金",
-          value: "float"
+          value: "1"
         }
       ],
       isDialog: false

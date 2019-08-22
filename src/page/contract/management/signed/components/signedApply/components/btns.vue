@@ -1,3 +1,10 @@
+<!--
+ * @Author: YZQ
+ * @DeScription: 
+ * @Date: 2019-08-07 01:32:14
+ * @LastEditors: YZQ
+ * @LastEditTime: 2019-08-22 00:04:28
+ -->
 <template>
   <div class="btns">
     <el-button type="success">保存</el-button>
@@ -8,7 +15,7 @@
 <script>
 export default {};
 </script>
-<style lang = "scss">
+<style lang = "scss" scoped>
 .btns {
   display: flex;
   flex-direction: row-reverse;

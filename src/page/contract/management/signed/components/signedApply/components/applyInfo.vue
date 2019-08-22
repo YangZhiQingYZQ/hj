@@ -1,6 +1,13 @@
+<!--
+ * @Author: YZQ
+ * @DeScription: 
+ * @Date: 2019-08-06 22:28:11
+ * @LastEditors: YZQ
+ * @LastEditTime: 2019-08-22 00:00:35
+ -->
 <template>
   <div class="apply-info">
-    <h3 class="apply-title">租赁申请（{{selectActive == "float"?"浮动租金":"固定租金"}}）</h3>
+    <h3 class="apply-title">租赁申请（{{selectActive == "1"?"浮动租金":"固定租金"}}）</h3>
     <!-- 申请人信息 -->
     <el-row class="apply-form bd-t">
       <el-col :span="4" class="label">申请人</el-col>
