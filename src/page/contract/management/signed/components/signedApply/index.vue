@@ -3,7 +3,7 @@
  * @DeScription: 
  * @Date: 2019-08-14 12:32:04
  * @LastEditors: YZQ
- * @LastEditTime: 2019-08-23 02:50:32
+ * @LastEditTime: 2019-08-26 01:05:05
  -->
 <template>
   <el-dialog :visible.sync="isDialog" width="80%">
@@ -24,9 +24,10 @@
     <!-- 暂不确定 -->
     <!-- <rent-rules :contract="contract" ref="rentRules"></rent-rules> -->
 
-    <rent-free-rule :contract="contract" ref="rentFreeRule"></rent-free-rule>
-    <!-- <other-expenses></other-expenses>
-    <first-rent-rule></first-rent-rule>
+    <!-- <rent-free-rule :contract="contract" ref="rentFreeRule"></rent-free-rule> -->
+
+    <other-expenses :contract="contract" ref="otherExpenses"></other-expenses>
+    <!-- <first-rent-rule></first-rent-rule>
     <supplement-rule></supplement-rule>
     <additional-explain></additional-explain>
     <relevant-enclosure></relevant-enclosure>

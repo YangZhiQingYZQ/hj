@@ -3,7 +3,7 @@
  * @DeScription: 
  * @Date: 2019-08-14 12:32:04
  * @LastEditors: YZQ
- * @LastEditTime: 2019-08-23 02:57:05
+ * @LastEditTime: 2019-08-25 03:57:37
  */
 export const dialogFn = {
   methods: {
@@ -132,20 +132,47 @@ export const AddContract = function (contractType) {
   this.rentFreeList.push(new RentFree());
 }
 
-export const getText = (function () {
-  let textObj = {
-    contractType: {
-      "0": "固定合同",
-      "1": "浮动合同"
-    },
-    contractSigningType: {
-      "0": "新签",
-      "1": "续签",
-      "2": "变更"
-    }
+let textObj = {
+  contractType: {
+    "0": "固定合同",
+    "1": "浮动合同"
+  },
+  contractSigningType: {
+    "0": "新签",
+    "1": "续签",
+    "2": "变更"
   }
-  return function (type, val) {
-    let result = textObj[type][val];
-    return result ? result : '';
+}
+/**
+ * @author: YZQ
+ * @param {String} type 获取目标对象的名称
+ * @param {String | Number} val 目标对象的索引值
+ * @return: 对应的描述，如果没有则返回空
+ */
+export const getText = function (type, val) {
+  let result = textObj[type][val];
+  return result ? result : '';
+}
+/**
+ * @author: YZQ
+ * @param {String} key 需要获取数组的名称 
+ * @return: 需要获取的数组对象
+ */
+export const getList = (function () {
+  let listObj = {};
+  return function (key) {
+    if (listObj[key]) {
+      return listObj[key]
+    } else {
+      let source = testObje[key],
+        i = 0;
+      listObj[key] = Object.keys(source).map(_key => {
+        return {
+          value: i,
+          label: source[i++]
+        };
+      })
+      return listObj[key];
+    }
   }
 })()

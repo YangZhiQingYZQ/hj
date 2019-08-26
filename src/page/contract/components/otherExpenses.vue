@@ -1,3 +1,10 @@
+<!--
+ * @Author: YZQ
+ * @DeScription: 
+ * @Date: 2019-08-16 14:24:35
+ * @LastEditors: YZQ
+ * @LastEditTime: 2019-08-26 01:19:47
+ -->
 <template>
   <div class="OtherExpenses">
     <template v-if="other">
@@ -8,11 +15,25 @@
           <icon class="el-icon-remove"></icon>
         </span>
       </h3>
-      <el-table border class="mr-b-20">
-        <el-table-column label="费项名称"></el-table-column>
+      <el-row border class="mr-b-20">
+        <!-- <el-table-column label="费项名称"></el-table-column>
         <el-table-column label="费用单价"></el-table-column>
-        <el-table-column label="计价单位"></el-table-column>
-      </el-table>
+        <el-table-column label="计价单位"></el-table-column>-->
+        <el-row class="table-title">
+          <el-col class="name" :span="6">费项名称</el-col>
+          <el-col class="type" :span="6">费项类型</el-col>
+          <el-col class="money" :span="6">费用单价</el-col>
+          <el-col class="unit" :span="6">计量单位</el-col>
+        </el-row>
+        <el-row>
+          <el-col class="name" :span="6">物管费</el-col>
+          <el-col class="type" :span="6">一次性</el-col>
+          <el-col class="money" :span="6">
+            <el-input></el-input>
+          </el-col>
+          <el-col class="unit" :span="6">元/m/月</el-col>
+        </el-row>
+      </el-row>
     </template>
 
     <el-row class="table">
@@ -84,7 +105,29 @@ export default {
     other: {
       type: Boolean,
       default: true
+    },
+    contract: {
+      type: Object,
+      default() {
+        return {};
+      }
     }
+  },
+  data() {
+    return {
+      form: {}
+    };
+  },
+  methods: {
+    initForm() {
+      let {} = this.contract;
+      this.form = {};
+    },
+    // 验证逻辑
+    isVerfiy() {}
+  },
+  created() {
+    this.initForm();
   }
 };
 </script>
