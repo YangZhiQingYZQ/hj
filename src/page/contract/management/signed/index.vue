@@ -3,7 +3,7 @@
  * @DeScription: 
  * @Date: 2019-08-14 12:33:27
  * @LastEditors: YZQ
- * @LastEditTime: 2019-08-23 01:08:46
+ * @LastEditTime: 2019-08-27 01:56:45
  -->
 <template>
   <div class="signed">
@@ -13,7 +13,7 @@
         <signed-table :tableData="soltData.tableData"></signed-table>
       </template>
     </signed-form>
-
+  {{selectActive}}
     <signed-add ref="signedAdd" @signedAdd="selectEvent" :selectActive.sync="selectActive"></signed-add>
     <signed-apply ref="signedApply" :selectActive.sync="selectActive"></signed-apply>
     <look-contract></look-contract>

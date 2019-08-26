@@ -3,7 +3,7 @@
  * @DeScription: 
  * @Date: 2019-08-14 12:32:04
  * @LastEditors: YZQ
- * @LastEditTime: 2019-08-26 01:05:05
+ * @LastEditTime: 2019-08-27 01:57:38
  -->
 <template>
   <el-dialog :visible.sync="isDialog" width="80%">
@@ -14,26 +14,23 @@
     ></apply-info>
     <customer :contract="contract" ref="customer"></customer>
     <!-- 暂不确定 -->
-    <!-- <wy :contract="contract" ref="wy"></wy> -->
+    <wy :contract="contract" ref="wy"></wy>
     <house-source :contract="contract" ref="houseSource"></house-source>
     <rent-time :contract="contract" ref="rentTime"></rent-time>
-
-    <div @click="subimt">dsfds</div>
     <!-- 暂不确定 -->
-    <!-- <flaot-rent-rule v-if="selectActive == '1'" :contract="contract" ref="floatRentRule"></flaot-rent-rule> -->
+    <flaot-rent-rule v-if="selectActive == '1'" :contract="contract" ref="floatRentRule"></flaot-rent-rule>
     <!-- 暂不确定 -->
-    <!-- <rent-rules :contract="contract" ref="rentRules"></rent-rules> -->
+    <rent-rules :contract="contract" ref="rentRules"></rent-rules>
 
-    <!-- <rent-free-rule :contract="contract" ref="rentFreeRule"></rent-free-rule> -->
-
+    <rent-free-rule :contract="contract" ref="rentFreeRule"></rent-free-rule>
     <other-expenses :contract="contract" ref="otherExpenses"></other-expenses>
-    <!-- <first-rent-rule></first-rent-rule>
-    <supplement-rule></supplement-rule>
-    <additional-explain></additional-explain>
-    <relevant-enclosure></relevant-enclosure>
-    <rent-policy></rent-policy>
-    <rent-preview-plan></rent-preview-plan>
-    <btns></btns> -->
+    <first-rent-rule :contract="contract" ref="firstRentRule"></first-rent-rule>
+    <supplement-rule :contract="contract" ref="supplementRule"></supplement-rule>
+    <additional-explain :contract="contract" ref="supplementRule"></additional-explain>
+    <relevant-enclosure :contract="contract" ref="relevantEnclosure"></relevant-enclosure>
+    <rent-policy :contract="contract" ref="rentPlicy"></rent-policy>
+    <rent-preview-plan :contract="contract" ref="rentPreviewPlan"></rent-preview-plan>
+    <btns></btns>
   </el-dialog>
 </template>
 
@@ -45,14 +42,14 @@ import houseSource from "../../../../components/houseSource";
 import rentTime from "../../../../components/rentTime";
 import rentRules from "../../../../components/rentRules";
 import rentFreeRule from "../../../../components/rentFreeRule";
-import otherExpenses from "./components/otherExpenses";
-import firstRentRule from "./components/firstRentRule";
-import supplementRule from "./components/supplementRule";
-import additionalExplain from "./components/additionalExplain";
-import relevantEnclosure from "./components/relevantEnclosure";
-import rentPolicy from "./components/rentPolicy";
-import rentPreviewPlan from "./components/rentPreviewPlan";
-import btns from "./components/btns";
+import otherExpenses from "../../../../components/otherExpenses";
+import firstRentRule from "../../../../components/firstRentRule";
+import supplementRule from "../../../../components/supplementRule";
+import additionalExplain from "../../../../components/additionalExplain";
+import relevantEnclosure from "../../../../components/relevantEnclosure";
+import rentPolicy from "../../../../components/rentPolicy";
+import rentPreviewPlan from "../../../../components/rentPreviewPlan";
+import btns from "../../../../components/btns";
 import { dialogFn, AddContract } from "../../../../common.js";
 console.log(dialogFn);
 export default {
@@ -77,7 +74,7 @@ export default {
   mixins: [dialogFn],
   props: {
     selectActive: {
-      type: String,
+      type: [String,Number],
       default: ""
     }
   },

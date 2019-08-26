@@ -3,7 +3,7 @@
  * @DeScription: 
  * @Date: 2019-08-16 14:24:35
  * @LastEditors: YZQ
- * @LastEditTime: 2019-08-26 01:19:47
+ * @LastEditTime: 2019-08-27 01:00:19
  -->
 <template>
   <div class="OtherExpenses">
@@ -11,76 +11,55 @@
       <h3 class="title">
         <span class="fn">其他费用</span>
         <span class="fn">
-          <icon class="el-icon-circle-plus"></icon>
-          <icon class="el-icon-remove"></icon>
+          <icon class="el-icon-circle-plus" @click="addItem"></icon>
+          <icon class="el-icon-remove" @click="popItem"></icon>
         </span>
       </h3>
-      <el-row border class="mr-b-20">
-        <!-- <el-table-column label="费项名称"></el-table-column>
-        <el-table-column label="费用单价"></el-table-column>
-        <el-table-column label="计价单位"></el-table-column>-->
-        <el-row class="table-title">
-          <el-col class="name" :span="6">费项名称</el-col>
-          <el-col class="type" :span="6">费项类型</el-col>
-          <el-col class="money" :span="6">费用单价</el-col>
-          <el-col class="unit" :span="6">计量单位</el-col>
+      <el-row border class="mr-b-20" v-for="(item,idx) in list" :key="'list_'+idx">
+        <el-row class="table">
+          <el-col class="label bd-l bd-t" :span="6">费项名称</el-col>
+          <el-col class="label bd-t" :span="6">费项类型</el-col>
+          <el-col class="label bd-t" :span="6">费用单价</el-col>
+          <el-col class="label bd-t" :span="6">计量单位</el-col>
         </el-row>
-        <el-row>
-          <el-col class="name" :span="6">物管费</el-col>
-          <el-col class="type" :span="6">一次性</el-col>
-          <el-col class="money" :span="6">
+        <el-row class="table">
+          <el-col class="label bd-l" :span="6">物管费</el-col>
+          <el-col class="label" :span="6">一次性</el-col>
+          <el-col class="label" :span="6">
             <el-input></el-input>
           </el-col>
-          <el-col class="unit" :span="6">元/m/月</el-col>
+          <el-col class="label" :span="6">元/m/月</el-col>
         </el-row>
       </el-row>
     </template>
 
     <el-row class="table">
       <el-col :span="3" class="label bd-l bd-t">租金合同金额（元）</el-col>
-      <el-col :span="3">
-        <el-input class="bd-t"></el-input>
-      </el-col>
+      <el-col :span="3" class="bd-t">{{from.rentContractAmount}}</el-col>
       <el-col :span="3" class="label bd-t">物管费合同金额（元）</el-col>
-      <el-col :span="3">
-        <el-input class="bd-t"></el-input>
-      </el-col>
+      <el-col :span="3" class="bd-t">{{from.contractPropertyFee}}</el-col>
       <el-col :span="3" class="label bd-t">周期合计合同金额（元）</el-col>
-      <el-col :span="3">
-        <el-input class="bd-t"></el-input>
-      </el-col>
+      <el-col :span="3" class="bd-t">{{from.periodicTotalContractAmount}}</el-col>
       <el-col :span="3" class="bd-n">
         <div class="label bd-t bd-l mr-l-20 bd-r bd-b">政策押金（元）</div>
       </el-col>
-      <el-col :span="3">
-        <el-input class="bd-t"></el-input>
-      </el-col>
+      <el-col :span="3" class="bd-t">{{from.policyDeposit}}</el-col>
     </el-row>
     <el-row class="table">
       <el-col :span="3" class="label bd-l">租金政策金额（元）</el-col>
-      <el-col :span="3">
-        <el-input></el-input>
-      </el-col>
+      <el-col :span="3">{{from.rentPolicyAmount}}</el-col>
       <el-col :span="3" class="label">物管费政策金额（元）</el-col>
-      <el-col :span="3">
-        <el-input></el-input>
-      </el-col>
+      <el-col :span="3">{{from.policyPropertyFee}}</el-col>
       <el-col :span="3" class="label">周期合计政策金额（元）</el-col>
-      <el-col :span="3">
-        <el-input></el-input>
-      </el-col>
+      <el-col :span="3">{{from.periodicTotalPolicyAmount}}</el-col>
       <el-col :span="3" class="bd-n">
         <div class="label bd-l mr-l-20 bd-r bd-b">合同押金（元）</div>
       </el-col>
-      <el-col :span="3">
-        <el-input></el-input>
-      </el-col>
+      <el-col :span="3">{{from.contractDeposit}}</el-col>
     </el-row>
     <el-row class="table">
       <el-col :span="3" class="label bd-l"></el-col>
-      <el-col :span="3">
-        <el-input></el-input>
-      </el-col>
+      <el-col :span="3"></el-col>
       <el-col :span="3" class="label"></el-col>
       <el-col :span="3">
         <el-input></el-input>
@@ -115,13 +94,38 @@ export default {
   },
   data() {
     return {
-      form: {}
+      from: {},
+      list: ["test"]
     };
   },
   methods: {
     initForm() {
-      let {} = this.contract;
-      this.form = {};
+      let {
+        rentContractAmount,
+        policyPropertyFee,
+        periodicTotalContractAmount,
+        policyDeposit,
+        rentPolicyAmount,
+        contractPropertyFee,
+        periodicTotalPolicyAmount,
+        contractDeposit
+      } = this.contract;
+      this.from = {
+        rentContractAmount,
+        policyPropertyFee,
+        periodicTotalContractAmount,
+        policyDeposit,
+        rentPolicyAmount,
+        contractPropertyFee,
+        periodicTotalPolicyAmount,
+        contractDeposit
+      };
+    },
+    addItem(){
+      this.list.push("test")
+    },
+    popItem(){
+      this.list.length >1 && this.list.pop()
     },
     // 验证逻辑
     isVerfiy() {}

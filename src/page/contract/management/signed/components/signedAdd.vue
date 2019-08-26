@@ -3,12 +3,13 @@
  * @DeScription: 
  * @Date: 2019-08-14 12:32:04
  * @LastEditors: YZQ
- * @LastEditTime: 2019-08-22 00:26:48
+ * @LastEditTime: 2019-08-27 02:00:18
  -->
 <template>
   <el-dialog title="提示" :visible.sync="isDialog">
     <el-form :inline="true">
       <el-form-item label="合同类型">
+        {{selectActive}}
         <el-select v-model="selectActive" placeholder="请选择">
           <el-option
             v-for="item in options"
@@ -39,7 +40,7 @@
 export default {
   props: {
     selectActive: {
-      type: String,
+      type: [String,Number],
       default: ""
     }
   },
