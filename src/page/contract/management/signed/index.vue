@@ -3,7 +3,7 @@
  * @DeScription: 
  * @Date: 2019-08-14 12:33:27
  * @LastEditors: YZQ
- * @LastEditTime: 2019-08-27 01:56:45
+ * @LastEditTime: 2019-08-28 01:22:35
  -->
 <template>
   <div class="signed">
@@ -13,9 +13,8 @@
         <signed-table :tableData="soltData.tableData"></signed-table>
       </template>
     </signed-form>
-  {{selectActive}}
-    <signed-add ref="signedAdd" @signedAdd="selectEvent" :selectActive.sync="selectActive"></signed-add>
-    <signed-apply ref="signedApply" :selectActive.sync="selectActive"></signed-apply>
+    <signed-add :selectActive.sync="selectActive" ref="signedAdd" @signedAdd="selectEvent" v-on:updata:selectActive="changeSelectActive"></signed-add>
+    <signed-apply ref="signedApply" :selectActive.sync="selectActive" v-on:updata:selectActive="changeSelectActive"></signed-apply>
     <look-contract></look-contract>
   </div>
 </template>
@@ -90,6 +89,9 @@ export default {
     lookContract: () => import("./components/lookContract/index.vue")
   },
   methods: {
+    changeSelectActive(val){
+      this.selectActive = val;
+    },
     add() {
       this.$refs.signedAdd.show();
     },

@@ -3,7 +3,7 @@
  * @DeScription: 
  * @Date: 2019-08-14 12:32:04
  * @LastEditors: YZQ
- * @LastEditTime: 2019-08-27 01:57:38
+ * @LastEditTime: 2019-08-28 02:04:29
  -->
 <template>
   <el-dialog :visible.sync="isDialog" width="80%">
@@ -30,7 +30,7 @@
     <relevant-enclosure :contract="contract" ref="relevantEnclosure"></relevant-enclosure>
     <rent-policy :contract="contract" ref="rentPlicy"></rent-policy>
     <rent-preview-plan :contract="contract" ref="rentPreviewPlan"></rent-preview-plan>
-    <btns></btns>
+    <btns @btnClick="btnClick" :btns="btns"></btns>
   </el-dialog>
 </template>
 
@@ -51,7 +51,6 @@ import rentPolicy from "../../../../components/rentPolicy";
 import rentPreviewPlan from "../../../../components/rentPreviewPlan";
 import btns from "../../../../components/btns";
 import { dialogFn, AddContract } from "../../../../common.js";
-console.log(dialogFn);
 export default {
   components: {
     customer,
@@ -69,12 +68,12 @@ export default {
     rentPolicy,
     rentPreviewPlan,
     btns,
-    flaotRentRule: () => import("./components/flaotRentRule")
+    flaotRentRule: () => import("../../../../components/flaotRentRule")
   },
   mixins: [dialogFn],
   props: {
     selectActive: {
-      type: [String,Number],
+      type: [String, Number],
       default: ""
     }
   },
@@ -82,25 +81,41 @@ export default {
   data() {
     return {
       isDialog: false,
-      contract: {}
+      contract: {},
+      btns: [
+        {
+          type: "view",
+          label: "合同预览"
+        },
+        {
+          type: "subimt",
+          label: "提交审核"
+        },
+        {
+          type: "save",
+          label: "保存"
+        }
+      ]
     };
   },
   methods: {
+    btnClick(type) {
+      console.log(type)
+      this[type]();
+    },
     subimt() {
-      console.log(this.$refs.applyInfo.form);
-      let params = Object.assign(
-        this.contract,
-        this.$refs.applyInfo.form,
-        this.$refs.customer.form,
-        this.$refs.houseSource.form,
-        this.$resf.rentTime.form
-      );
+      let { $refs } = this,
+        params = Object.assign(
+          this.contract,
+          ...Object.keys($refs).map(item => {
+            return $refs[item].form;
+          })
+        );
       console.log(params);
     }
   },
   created() {
     this.contract = new AddContract(this.selectActive);
-    console.log((this.contract.employeeName = "21123123"));
   }
 };
 </script>

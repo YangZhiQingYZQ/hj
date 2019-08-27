@@ -3,14 +3,13 @@
  * @DeScription: 
  * @Date: 2019-08-14 12:32:04
  * @LastEditors: YZQ
- * @LastEditTime: 2019-08-27 02:00:18
+ * @LastEditTime: 2019-08-28 01:18:31
  -->
 <template>
   <el-dialog title="提示" :visible.sync="isDialog">
     <el-form :inline="true">
       <el-form-item label="合同类型">
-        {{selectActive}}
-        <el-select v-model="selectActive" placeholder="请选择">
+        <el-select v-model="applySelectActive" placeholder="请选择">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -45,8 +44,8 @@ export default {
     }
   },
   watch: {
-    selectActive() {
-      this.$emit("updata:selectActive", this.selectActive);
+    applySelectActive() {
+      this.$emit("updata:selectActive", this.applySelectActive);
     }
   },
   data() {
@@ -62,6 +61,7 @@ export default {
           value: "1"
         }
       ],
+      applySelectActive:this.selectActive,
       isDialog: false
     };
   },
